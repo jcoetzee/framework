@@ -15,5 +15,12 @@ interface UserInterface {
 	 * @return string
 	 */
 	public function getAuthPassword();
+    
+	/**
+	 * Set the password for the user.
+	 *
+	 * @return string
+	 */
+	public function setAuthPassword();
 
 }

@@ -285,8 +285,10 @@ class Guard {
 		// fact valid we'll log the users into the application and return true.
 		if ($user instanceof UserInterface)
 		{
-			if ($this->provider->validateCredentials($user, $credentials))
+			if ($hash = $this->provider->validateCredentials($user, $credentials))
 			{
+                if (gettype($hash) == 'string')
+                    $user->setHash($hash);
 				if ($login) $this->login($user, $remember);
 
 				return true;
